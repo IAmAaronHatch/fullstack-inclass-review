@@ -2,12 +2,14 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const session = require('express-session')
 const massive = require('massive')
+const path = require('path')
 require('dotenv').config()
 
 const app = express()
 const port = process.env.PORT || 4007
 
 app.use(bodyParser.json())
+app.use(express.static(`${__dirname}/../build`))
 
 //controllers
 const AuthCtrl = require('./controllers/AuthCtrl')
@@ -40,7 +42,13 @@ app.post('/api/posts', PostsCtrl.create)
 
 
 
-
+app.get('/*', function (req, res) {
+    res.sendFile(path.join(__dirname, '../build/index.html'), function (err) {
+        if (err) {
+            res.status(500).send(err)
+        }
+    })
+})
 
 app.listen(port, () => {
     console.log(`Never gonna give ${port} up, Never gonna let ${port} down.`)

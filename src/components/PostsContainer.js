@@ -7,6 +7,7 @@ import { getPosts } from '../ducks/reducers/posts'
 
 //controllers
 import Posts from './Posts'
+import Post from './Post'
 
 class PostsContainer extends Component {
 
@@ -18,6 +19,7 @@ class PostsContainer extends Component {
         return (
             <Switch>
                 <Route exact path='/posts' component={Posts} />
+                <Route path='/posts/:id' component={Post} />
             </Switch>
         )
     }
