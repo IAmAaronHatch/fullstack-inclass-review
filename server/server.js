@@ -7,6 +7,8 @@ require('dotenv').config()
 const app = express()
 const port = process.env.PORT || 4007
 
+app.use(bodyParser.json())
+
 //controllers
 const AuthCtrl = require('./controllers/AuthCtrl')
 const PostsCtrl = require('./controllers/PostsCtrl')
