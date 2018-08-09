@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 class LandingPage extends Component {
-    
+
     login = () => {
         let auth0domain = `https://${process.env.REACT_APP_AUTH0_DOMAIN}`
         let clientId = process.env.REACT_APP_AUTH0_CLIENT_ID
@@ -19,6 +19,8 @@ class LandingPage extends Component {
     render() {
         return (
             <div>
+                <p>Welcome to my website. As you can see, it's super exciting.</p>
+                
                 {this.props.user ?
                     <h1>Aloha, {this.props.user.name}</h1> :
                     <button onClick={this.login}>Login Please ▶</button>}

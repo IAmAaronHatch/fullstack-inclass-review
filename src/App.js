@@ -33,9 +33,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <p className="App-intro">
-          Welcome to my website. As you can see, it's super exciting.
-        </p>
+        
 
         <HashRouter>
           <Switch>
